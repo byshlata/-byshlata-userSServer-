@@ -6,7 +6,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "ts-node src/server/index.ts",
+    "start": "nodemon src/server/index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
