@@ -50,7 +50,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, mongoose_1.connect)('mongodb+srv://byshlata:wwwwww@userbase.zbjoeya.mongodb.net/userBase?retryWrites=true&w=majority')];
+                case 0: return [4 /*yield*/, (0, mongoose_1.connect)(process.env.APP_DB_HOST)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -64,19 +64,12 @@ process.on('unhandledRejection', function (reason, p) {
     console.log(reason, p);
 });
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: process.env.APP_BASE_URL,
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE']
 };
 app.use(cors(corsOptions));
-// app.use(function (req, res, next) {
-//     res.header('Access-Control-Allow-Origin', process.env.REACT_APP_BASE_URL);
-//     res.header('Access-Control-Allow-Headers', true);
-//     res.header('Access-Control-Allow-Credentials', true);
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//     next();
-// });
 app.use(express.json());
 app.use("".concat(path_1.Path.Register), register);
 app.use("".concat(path_1.Path.Login), login);

@@ -11,7 +11,7 @@ const { config } = require('dotenv')
 config()
 
 async function run() {
-    await connect('mongodb+srv://byshlata:wwwwww@userbase.zbjoeya.mongodb.net/userBase?retryWrites=true&w=majority');
+    await connect(process.env.APP_DB_HOST);
 }
 
 run().catch(err => console.log(err));
@@ -23,21 +23,13 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: process.env.APP_BASE_URL,
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
 }
 
 app.use(cors(corsOptions))
-
-// app.use(function (req, res, next) {
-//     res.header('Access-Control-Allow-Origin', process.env.REACT_APP_BASE_URL);
-//     res.header('Access-Control-Allow-Headers', true);
-//     res.header('Access-Control-Allow-Credentials', true);
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//     next();
-// });
 
 app.use(express.json())
 
