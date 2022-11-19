@@ -64,7 +64,7 @@ process.on('unhandledRejection', function (reason, p) {
     console.log(reason, p);
 });
 var corsOptions = {
-    origin: process.env.BASE_URL,
+    origin: 'https://byshlata.github.io',
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE']

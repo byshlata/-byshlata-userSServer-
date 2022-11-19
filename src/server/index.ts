@@ -23,7 +23,7 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 const corsOptions = {
-    origin: process.env.BASE_URL,
+    origin: 'https://byshlata.github.io',
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
