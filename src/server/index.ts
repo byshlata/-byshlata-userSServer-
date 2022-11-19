@@ -11,7 +11,7 @@ const { config } = require('dotenv')
 config()
 
 async function run() {
-    await connect(process.env.DB_HOST);
+    await connect('mongodb+srv://byshlata:wwwwww@userbase.zbjoeya.mongodb.net/userBase?retryWrites=true&w=majority');
 }
 
 run().catch(err => console.log(err));
