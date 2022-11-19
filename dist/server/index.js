@@ -50,7 +50,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, mongoose_1.connect)(process.env.APP_DB_HOST)];
+                case 0: return [4 /*yield*/, (0, mongoose_1.connect)(process.env.DB_HOST)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -64,7 +64,7 @@ process.on('unhandledRejection', function (reason, p) {
     console.log(reason, p);
 });
 var corsOptions = {
-    origin: process.env.APP_BASE_URL,
+    origin: process.env.BASE_URL,
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE']

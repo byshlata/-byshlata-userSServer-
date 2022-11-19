@@ -11,7 +11,7 @@ const { config } = require('dotenv')
 config()
 
 async function run() {
-    await connect(process.env.APP_DB_HOST);
+    await connect(process.env.DB_HOST);
 }
 
 run().catch(err => console.log(err));
@@ -23,7 +23,7 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 const corsOptions = {
-    origin: process.env.APP_BASE_URL,
+    origin: process.env.BASE_URL,
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
