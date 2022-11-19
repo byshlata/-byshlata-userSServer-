@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist"
+  },
+}
