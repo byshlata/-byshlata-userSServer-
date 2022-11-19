@@ -23,7 +23,7 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 const corsOptions = {
-    origin: '*',
+    origin: ['https://byshlata.github.io/TableUsers', 'http://localhost:3000', "https://byshlata.github.io"],
     credentials: true,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
