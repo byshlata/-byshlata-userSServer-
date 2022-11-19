@@ -89,8 +89,10 @@ export const createUser = async (payload: UserRegistrationType): Promise<UserAut
 export const loginUser = async (payload: UserLoginType): Promise<UserAuthType> => {
     try {
         const user = await getUserByEmail(payload.email)
+
         if (user) {
             const isValidPassword = await bcrypt.compare(payload.password, user.password);
+
             if (isValidPassword) {
                 const userUpdate = await updateUserData(user._id, { timeLastLogin: createData() })
                 const userSend = createAuthUserData(userUpdate);
@@ -98,6 +100,7 @@ export const loginUser = async (payload: UserLoginType): Promise<UserAuthType> =
             } else {
                 return throwError()
             }
+
         } else {
             return throwError()
         }
@@ -109,6 +112,7 @@ export const loginUser = async (payload: UserLoginType): Promise<UserAuthType> =
 export const authUser = async (id: string): Promise<Nullable<UserAuthType>> => {
     try {
         const user = await getUserById(id)
+
         if (user) {
             const userSend = createAuthUserData(user);
             return await userSend;

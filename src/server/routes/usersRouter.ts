@@ -19,6 +19,7 @@ const router = express.Router();
 router.get<Empty, UsersResponseType | ErrorResponseType, UserIdType, Empty>(`${Path.Root}`, checkAuth, async (req, res) => {
     try {
         const users = await getUsers()
+
         return res.status(200).send({ users })
 
     } catch (error) {
@@ -29,7 +30,6 @@ router.get<Empty, UsersResponseType | ErrorResponseType, UserIdType, Empty>(`${P
 
 router.delete<Empty, UsersResponseType | ErrorResponseType, UsersIdType, Empty >(`${Path.Root}`, checkAuth, async (req, res) => {
     try {
-
         const users = await deleteSomeUsers(req.body)
 
         if(req.body.id.indexOf(req.body.userId) !== -1) {

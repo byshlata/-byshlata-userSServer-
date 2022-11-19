@@ -46,7 +46,7 @@ var path_1 = require("../../enums/path");
 var authValidation_1 = require("../../validation/authValidation");
 var express_validator_1 = require("express-validator");
 var router = express_1["default"].Router();
-router.post("".concat(path_1.Path.Root), authValidation_1.registerValidation, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.post("".concat(path_1.Path.Root), authValidation_1.loginValidation, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var errors, email, password, user, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {

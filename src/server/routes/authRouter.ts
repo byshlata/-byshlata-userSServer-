@@ -11,6 +11,7 @@ const router = express.Router();
 router.get<Empty, UserResponseType | ErrorResponseType, UserLoginType, Empty>(`${Path.Root}`, checkAuth, async (req, res) => {
     try {
         const user = await authUser(req.body.userId)
+
         if (user) {
             return res.status(200).send({ user })
         } else {
